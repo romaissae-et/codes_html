@@ -1,0 +1,82 @@
+<html>
+<head>
+      <title>Menu</title>
+      <style>
+        .parent{
+            display: flex;
+            justify-content: center;
+            align-items:center;
+    
+        }
+        .div-input{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        #resultat{
+            background-color: rgb(117, 181, 233);
+            display: flex;
+            width: 400px;
+            height:150px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="div-input">
+        <table>
+        <thead>
+            <tr>
+                 <th>entree</th>
+                 <th>plat_principal</th>
+                 <th>dessert</th> 
+            </tr> 
+        </thead>
+            <tr>
+             <td>
+                <select id="entree">
+                    <option value="30">salade</option>
+                    <option value="45">soupe</option>
+                    <option value="40">pate</option>
+                </select>    
+             </td>
+             <td>
+                <select id="plat_principal">
+                    <option value="80">poulet</option>
+                    <option value="75">boeuf</option>
+                    <option value="100">poisson</option>
+                </select>
+             </td>
+             <td>
+                <select id="dessert">
+                    <option value="50">glace</option>
+                    <option value="55">tarte</option>
+                    <option value="58">fruit</option>
+                </select>
+             </td>
+          </tr>
+          </table>
+        <button type="button" onclick="envoyer()" class="btn btn-primary">envoi</button>
+        <div id="resultat"></div>
+        </div> 
+    </div>
+   
+    <script>
+        function envoyer(){
+            let dessert=document.getElementById('dessert').value;
+            let plat_principal=document.getElementById('plat_principal').value;
+            let entree=document.getElementById('entree').value;
+            let total=parseFloat(dessert)+parseFloat(plat_principal)+parseFloat(entree);
+            document.getElementById('resultat').innerHTML=
+            "prix a payer    :" + "<br>" +
+            "entree:" + entree + "DH" + "<br>" +
+            "plat_principal:" + plat_principal + "DH" + "<br>" +
+            "dessert:" + dessert + "DH" + "<br>" +
+            "total:" + total.toFixed(2) + "DH";
+        }
+    </script>
+</body>
+</html>
